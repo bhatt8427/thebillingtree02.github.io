@@ -609,35 +609,47 @@
             </div>
           </div>
         </section>
-        <section class="home-mission2"></section>
-        <section class="home-newsletter">
-          <div class="home-header4">
-            <h2 class="home-text42">Subscribe to our newsletter</h2>
-            <p class="home-text43">
-              Sign up for our newsletter to get the latest news!
-            </p>
-          </div>
-          <div class="home-content4">
-            <div class="home-email">
-              <input
-                type="text"
-                placeholder="Enter your email"
-                class="home-textinput input"
-              />
-              <div class="home-submit">
-                <img alt="image" src="public/frame.svg" class="home-image40" />
-              </div>
-            </div>
-            <div class="home-notice1">
-              <span class="home-notice2">
-                By subscribing, one may encounter pleasure that is not genuine,
-                and be at fault for indulging in actions that ignore
-                responsibility and stir the soul
-              </span>
-            </div>
-          </div>
-        </section>
-        <contact-form2-wrapper class="contact-form2-wrapper">
+        <form
+  action="https://formspree.io/f/xqanzlnv"
+  method="POST"
+>
+  <section class="home-mission2"></section>
+
+  <section class="home-newsletter">
+    <div class="home-header4">
+      <h2 class="home-text42">Subscribe to our newsletter</h2>
+      <p class="home-text43">
+        Sign up for our newsletter to get the latest news!
+      </p>
+    </div>
+
+    <div class="home-content4">
+      <div class="home-email">
+        <input
+          type="email"
+          placeholder="Enter your email"
+          class="home-textinput input"
+          name="email"
+          required
+        />
+
+        <button type="submit" class="home-submit">
+          <img alt="submit" src="public/frame.svg" class="home-image40" />
+        </button>
+      </div>
+
+      <div class="home-notice1">
+        <span class="home-notice2">
+          By subscribing, one may encounter pleasure that is not genuine,
+          and be at fault for indulging in actions that ignore
+          responsibility and stir the soul.
+        </span>
+      </div>
+    </div>
+  </section>
+</form>
+
+                <contact-form2-wrapper class="contact-form2-wrapper">
           <!--ContactForm2 component-->
         <form
   action="https://formspree.io/f/mqawrawl"
