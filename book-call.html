@@ -104,13 +104,67 @@
 
      <label>
   Email:
-  <input type="email" name="email" required placeholder="example@domain.com" />
-</label>
+<input
+  type="email"
+  name="email"
+  id="email"
+  placeholder="example@domain.com"
+  required
+/>
+     </label>
+<span id="emailError" style="color:red; display:none;">Please enter a valid email address.</span>
+
+<script>
+  const emailInput = document.getElementById('email');
+  const emailError = document.getElementById('emailError');
+
+  emailInput.addEventListener('blur', () => {
+    // HTML5 already validates, but we can add a regex check
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(emailInput.value)) {
+      emailError.style.display = 'inline';
+    } else {
+      emailError.style.display = 'none';
+    }
+  });
+</script>
 
      <label>
   Phone:
-  <input type="tel" name="phone" required pattern="[0-9]{10}" placeholder="1234567890" />
-</label>
+<input
+  type="tel"
+  name="phone"
+  id="phone"
+  pattern="\d{10}"
+  maxlength="10"
+  placeholder="1234567890"
+  required
+/>
+     </label>
+<span id="phoneError" style="color:red; display:none;">Please enter a valid 10-digit phone number.</span>
+
+<script>
+  const phoneInput = document.getElementById('phone');
+  const phoneError = document.getElementById('phoneError');
+
+  phoneInput.addEventListener('input', () => {
+    const phoneValue = phoneInput.value.replace(/\D/g, ''); // Remove non-digits
+    phoneInput.value = phoneValue; // Keep only digits
+
+    if (phoneValue.length > 10) {
+      phoneInput.value = phoneValue.slice(0, 10); // Limit to 10 digits
+    }
+  });
+
+  phoneInput.addEventListener('blur', () => {
+    if (phoneInput.value.length !== 10) {
+      phoneError.style.display = 'inline';
+    } else {
+      phoneError.style.display = 'none';
+    }
+  });
+</script>
+
 
       <label>
         Specialty:
@@ -140,4 +194,5 @@
   </section>
 </body>
 </html>
+
 
